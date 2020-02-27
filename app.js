@@ -30,6 +30,9 @@ app.use(express.cookieParser('Intro HCI secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('/',index.view);
+app.get('/rsvp', rsvp.adminView);
+app.post('/addRSVP',rsvp.addRSVP);
 
 // development only
 if ('development' == app.get('env')) {
